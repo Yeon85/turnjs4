@@ -1,0 +1,288 @@
+/* oracle' book */
+
+.sample-oracle .zoom-in{
+	display:none;
+}
+
+.oracle-book{
+	width:960px;
+	height:600px;
+	background-image:url(../pics/spine.png);
+	background-repeat:repeat-y;
+	background-position:479px 0;
+	z-index: 0;
+}
+
+
+.oracle-book h1{
+	font-family: "Stempel-Garamond-W01-Roman";
+}
+
+.oracle-book .book-content{
+	font-family: "Stempel-Garamond-W01-Roman";
+	font-size:16px;
+	margin:70px 40px;
+}
+
+.oracle-book h2{
+	font-size:16px;
+	letter-spacing:2px;
+	font-weight: 400;
+}
+
+.oracle-book blockquote{
+	color:#586078;
+	margin:10px 0;
+	font-style:italic;
+}
+
+.oracle-book blockquote:before{
+	content: "\201C";
+	color:#333D53;
+	font-size:20px;
+}
+
+.oracle-book blockquote:after{
+	content: "\201D";
+	color:#333D53;
+	font-size:20px;
+}
+
+.oracle-book cite{
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:13px;
+	font-weight:200;
+	font-style:normal;
+	color:#666;
+}
+
+.oracle-book .book-content .center-pic{
+	margin:0;
+	text-indent:0;
+	text-align:center;
+}
+
+.oracle-book .zoom-this:hover{
+	opacity:0.9;
+	cursor:pointer;
+}
+
+.oracle-book .book-content p{
+	text-indent: 18px;
+}
+
+.oracle-book .left-pic{
+	float:left;
+	margin-top:15px;
+	margin-right:15px;
+	margin-bottom:15px;
+}
+
+.animated{
+	-webkit-transition:margin-left 0.2s ease-in-out;
+	-moz-transition:margin-left 0.2s ease-in-out;
+	-o-transition:margin-left 0.2s ease-in-out;
+	-ms-transition:margin-left 0.2s ease-in-out;
+	transition:margin-left 0.2s ease-in-out;
+}
+
+.show-bar .oracle-book .shadow{
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	-moz-transition: -moz-box-shadow 0.5s;
+	-o-transition: -webkit-box-shadow 0.5s;
+	-ms-transition: -ms-box-shadow 0.5s;
+
+	-webkit-box-shadow:0 0 10px #999;
+	-moz-box-shadow:0 0 10px #999;
+	-ms-box-shadow:0 0 10px #999;
+	-o-box-shadow:0 0 10px #999;
+	box-shadow:0 0 10px #999;
+}
+
+.oracle-book .page{
+	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-o-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+
+.oracle-book .p1,
+.oracle-book .p2,
+.oracle-book .p111, 
+.oracle-book .p112{
+	background-color:white;
+	background-image:url(../pics/book-covers.jpg) !important;
+}
+
+.oracle-book .p1{
+	background-position:0 0;
+}
+
+.oracle-book .p1 .side{
+	width:5px;
+	height:600px;
+	position:absolute;
+	top:0;
+	left:475px;
+
+	background:-webkit-gradient(linear, left top, right top, color-stop(0, #333), color-stop(0.5,  #666), color-stop(1,  #333));
+	background-image:-webkit-linear-gradient(left, #333, #666, #333);
+	background-image:-moz-linear-gradient(left, #333, #666, #333);
+	background-image:-ms-linear-gradient(left, #333, #666, #333);
+	background-image:-o-linear-gradient(left, #333, #666, #333);
+	background-image:linear-gradient(left, #333, #666, #333);
+	
+	-webkit-transform:rotateY(-90deg);
+	-moz-transform:rotateY(-90deg);
+	-o-transform:rotateY(-90deg);
+	-ms-transform:rotateY(-90deg);
+	transform:rotateY(-90deg);
+
+	-webkit-transform-origin:top right;
+	-moz-transform-origin:top right;
+	-o-transform-origin:top right;
+	-ms-transform-origin:top right;
+	transform-origin:top right;
+	z-index:100000;
+
+}
+
+.oracle-book-transform div[page="1"] > div, .oracle-book-transform div[page="2"] > div{
+	overflow:visible !important;
+}
+
+.oracle-book .depth{
+	background-image:url(../pics/pages-depth.png);
+	position:absolute;
+	top:7px;
+	width:16px;
+	height:590px;
+}
+
+.oracle-book .front-side .depth{
+	left:4px;
+	background-position:0 0;
+}
+
+.oracle-book .back-side .depth{
+	right:4px;
+	background-position:right 0;
+}
+
+
+.oracle-book .p2{
+	background-position:-480px 0 !important;
+}
+
+.oracle-book .p111{
+	background-position:-960px 0 !important;
+}
+
+.oracle-book .p112{
+	background-position:-1440px 0 !important;
+}
+
+.oracle-book .hard{
+	width:480px;
+	height:600px;
+	background-color:white;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	-ms-box-shadow:none;
+	box-shadow:none;
+}
+
+.oracle-book .page-wrapper{
+	-webkit-perspective:2000px;
+	-moz-perspective: 2000px;
+	-ms-perspective: 2000px;
+	perspective: 2000px;
+}
+
+.oracle-book .own-size{
+	width:460px;
+	height:582px;
+	background-color:white;
+	overflow:hidden;
+}
+
+.oracle-book .even{
+	background:-webkit-gradient(linear, left top, right top, color-stop(0.95, #fff), color-stop(1, #dadada));
+	background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+}
+
+.oracle-book .odd{
+	background:-webkit-gradient(linear, right top, left top, color-stop(0.95, #fff), color-stop(1, #cacaca));
+	background-image:-webkit-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-moz-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-ms-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-o-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:linear-gradient(right, #fff 95%, #cacaca 100%);
+}
+
+.oracle-book .loader{
+	background-image:url(../pics/loader.gif);
+	width:22px;
+	height:22px;
+	position:absolute;
+	top:280px;
+	left:219px;
+}
+
+.oracle-book .page-number{
+	color:#999;
+	width:100%;
+	bottom:25px;
+	position:absolute;
+	display:block;
+	text-align: center;
+	line-height:30px;
+	font-size:11px;
+}
+
+.oracle-book .table-contents{
+	font-size:16px;
+	width:300px;
+	margin:110px auto;
+
+	color:#ccc;
+}
+
+.oracle-book .table-contents li{
+	list-style:none;
+	line-height:25px;
+}
+
+.oracle-book .table-contents span{
+	float:right;
+}
+
+.oracle-book .table-contents a{
+	float:left;
+	width:100%;
+	clear:both;
+	text-decoration:none;
+	color:#333;
+	margin:2px 0;
+	padding:0 10px;
+}
+
+.oracle-book .table-contents a:hover{
+	background:#CAD1EE;
+	float:left;
+	width:100%;
+	clear:both;
+	text-decoration:none;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	-o-border-radius:10px;
+	-ms-border-radius:10px;
+	border-radius:10px;
+}
+
