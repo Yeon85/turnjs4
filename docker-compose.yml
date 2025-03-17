@@ -1,39 +1,52 @@
-version: "3"
-services: 
-  mysql000ex11:
-    image: mysql:latest
-    volumes:
-      - mysql000vol11:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: myrootpass
-      MYSQL_DATABASE: wordpress000db
-      MYSQL_USER: wordpress000kun
-      MYSQL_PASSWORD: wkunpass
-    networks:
-      - wordpress000net1
-
-  wordpress000ex12:
-    depends_on:
-      - mysql000ex11
-    image: wordpress
-    networks:
-      - wordpress000net1
-    volumes:
-      - wordpress000vol12:/var/www/html
-    ports:
-      - 8085:80
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: mysql000ex11:3306  # 포트 추가
-      WORDPRESS_DB_NAME: wordpress000db
-      WORDPRESS_DB_USER: wordpress000kun
-      WORDPRESS_DB_PASSWORD: wkunpass
-    entrypoint: ["sh", "-c", "sleep 10; docker-entrypoint.sh apache2-foreground"]  # MySQL 초기화 대기
-
+version: "3.7"
 networks:
-  wordpress000net1:
+  wisefee-network-dev-deploy:
+    driver: bridge
 
-volumes:
-  mysql000vol11:
-  wordpress000vol12:
+services:
+  wisefee-database:
+    image: mariadb:10.11.2
+    container_name: wisefee-database-dev-deploy
+    environment:
+      MYSQL_DATABASE: "wisefee-database"
+      MYSQL_ROOT_PASSWORD: "1111"
+    ports:
+      - 3309:3306
+    volumes:
+      - ./volumes/mariadb:/var/lib/mysql
+    networks: #사용할 네트워크 지정
+      - wisefee-network-dev-deploy
+
+  wisefee-app:
+    image: sjh9708/devserver-wisefee-app5:latest
+    restart: always        
+    depends_on: 
+      - wisefee-database
+      - wisefee-redis
+    ports:
+      - 8082:8080
+    container_name: wisefee-app-dev-deploy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://wisefee-database-dev-deploy:3306/wisefee-database?characterEncoding=UTF-8&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1111
+      SPRING_REDIS_HOST: wisefee-redis-dev-deploy 
+      SPRING_REDIS_PORT: 6379  
+    volumes:
+      - ./volumes/storage/upload:/app/wisefee/storage/upload
+      - ./volumes/log:/app/wisefee/log
+    networks:
+      - wisefee-network-dev-deploy
+
+  wisefee-redis: # container name
+    image: redis:6.2.6-alpine
+    ports:
+      - 6391:6379
+    container_name: wisefee-redis-dev-deploy
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes: 
+      - ./volumes/redis/data:/data
+      - ./volumes/redis/conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    networks:
+      - wisefee-network-dev-deploy
